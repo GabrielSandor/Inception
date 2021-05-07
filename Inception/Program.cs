@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 
 namespace Inception
 {
@@ -10,7 +9,7 @@ namespace Inception
             var device = new DreamDevice(int.Parse(args[1]));
             device.ExperienceDream(args[0]);
 
-
+            Console.WriteLine(device.DreamStats);
         }
     }
 }

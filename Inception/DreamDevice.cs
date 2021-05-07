@@ -5,8 +5,8 @@ namespace Inception
 {
     public class DreamDevice
     {
-        private readonly Stack<DreamTimeline> _dreamTimelines;
         private readonly RealityTimeline _realityTimeline;
+        private readonly Stack<DreamTimeline> _dreamTimelines;
 
         public DreamStats DreamStats { get; }
 
@@ -33,9 +33,6 @@ namespace Inception
 
                     case 'W':
                         WakeUp();
-                        break;
-
-                    default:
                         break;
                 }
             }

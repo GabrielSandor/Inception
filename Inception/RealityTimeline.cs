@@ -2,9 +2,9 @@
 {
     public class RealityTimeline : Timeline
     {
-        public int DreamTickCount { get; private set; }
+        private int DreamTickCount { get; set; }
 
-        public override int EffectiveDreamTickCount => DreamTickCount;
+        public virtual int EffectiveDreamTickCount => DreamTickCount;
 
         public RealityTimeline(int timeWarpFactor) : base(0, null, timeWarpFactor)
         {

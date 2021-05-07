@@ -7,7 +7,7 @@
         {
         }
 
-        public override int EffectiveDreamTickCount => TickCount;
+        public virtual int EffectiveDreamTickCount => TickCount;
 
         public override void Tick()
         {

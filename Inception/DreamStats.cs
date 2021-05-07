@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace Inception
 {
@@ -26,7 +28,15 @@ namespace Inception
 
         public override string ToString()
         {
-            return base.ToString();
+            var sb = new StringBuilder();
+            sb.AppendLine($"Total subjective dreaming duration: {TotalSubjectiveDreamingDuration}");
+            sb.AppendLine($"Realtime dreaming duration: {RealTimeDreamingDuration}");
+            foreach (var (key, value) in DurationsPerDreamLevel.OrderBy(kvp => kvp.Key))
+            {
+                sb.AppendLine($"Dream level {key} duration: {value}");
+            }
+
+            return sb.ToString();
         }
     }
 }

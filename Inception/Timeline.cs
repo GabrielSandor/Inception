@@ -4,22 +4,19 @@ namespace Inception
 {
     public abstract class Timeline
     {
+        private readonly Timeline _parent;
         private readonly int _timeWarpFactor;
 
         public int Level { get; }
 
         public int SubjectiveDreamingDuration { get; protected set; }
 
-        protected Timeline Parent { get; }
-
         protected int TickCount { get; set; }
 
-        public abstract int EffectiveDreamTickCount { get; }
-
-        public Timeline(int level, Timeline parent, int timeWarpFactor)
+        protected Timeline(int level, Timeline parent, int timeWarpFactor)
         {
             Level = level;
-            Parent = parent;
+            _parent = parent;
             _timeWarpFactor = timeWarpFactor;
         }
 
@@ -32,7 +29,7 @@ namespace Inception
 
         public void WakeUp()
         {
-            Parent?.ResumeFromChildDream(TickCount);
+            _parent?.ResumeFromChildDream(TickCount);
         }
 
         protected int CalculateElapsedTimeAfterResumingFromChildDream(int ticksSpentInChildDream)
